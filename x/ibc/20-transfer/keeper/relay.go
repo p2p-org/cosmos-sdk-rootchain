@@ -59,6 +59,7 @@ func (k Keeper) createOutgoingPacket(
 	sender sdk.AccAddress,
 	receiver string,
 ) error {
+
 	rootDenom := "root"
 
 	channelCap, ok := k.scopedKeeper.GetCapability(ctx, ibctypes.ChannelCapabilityPath(sourcePort, sourceChannel))
