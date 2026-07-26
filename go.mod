@@ -13,7 +13,7 @@ require (
 	github.com/gorilla/handlers v1.4.2
 	github.com/gorilla/mux v1.7.4
 	github.com/hashicorp/golang-lru v0.5.4
-	github.com/mattn/go-isatty v0.0.12
+	github.com/mattn/go-isatty v0.0.24
 	github.com/otiai10/copy v1.1.1
 	github.com/pelletier/go-toml v1.7.0
 	github.com/pkg/errors v0.9.1
