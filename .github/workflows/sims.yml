@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     if: "!startsWith(github.ref, 'refs/tags/') && github.ref != 'refs/heads/master'"
     steps:
-      - uses: rokroskar/workflow-run-cleanup-action@master
+      - uses: rokroskar/workflow-run-cleanup-action@c631227427d0452af4994af0940d7655ebc50c7c # master
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'skip-sims')"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e # v2
       - run: |
           make build
 
@@ -21,11 +21,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/setup-go@v2-beta
+      - uses: actions/setup-go@78bd24e01a1a907f7ea3e614b4d7c15e563585a8 # v2-beta
       - name: install runsim
         run: |
           export GO111MODULE="on" && go get github.com/cosmos/tools/cmd/runsim@v1.0.0
-      - uses: actions/cache@v1
+      - uses: actions/cache@f5ce41475b483ad7581884324a6eca9f48f8dcc7 # v1
         with:
           path: ~/go/bin
           key: ${{ runner.os }}-go-runsim-binary
@@ -34,8 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build, install-runsim]
     steps:
-      - uses: actions/checkout@v2
-      - uses: technote-space/get-diff-action@v1
+      - uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e # v2
+      - uses: technote-space/get-diff-action@98fd8d380c6026fd0564d5a6f98fa2cf5c100c95 # v1
         with:
           SUFFIX_FILTER: |
             .go
@@ -43,7 +43,7 @@ jobs:
             .sum
           SET_ENV_NAME_INSERTIONS: 1
           SET_ENV_NAME_LINES: 1
-      - uses: actions/cache@v1
+      - uses: actions/cache@f5ce41475b483ad7581884324a6eca9f48f8dcc7 # v1
         with:
           path: ~/go/bin
           key: ${{ runner.os }}-go-runsim-binary
@@ -57,8 +57,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build, install-runsim]
     steps:
-      - uses: actions/checkout@v2
-      - uses: technote-space/get-diff-action@v1
+      - uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e # v2
+      - uses: technote-space/get-diff-action@98fd8d380c6026fd0564d5a6f98fa2cf5c100c95 # v1
         with:
           SUFFIX_FILTER: |
             .go
@@ -66,7 +66,7 @@ jobs:
             .sum
           SET_ENV_NAME_INSERTIONS: 1
           SET_ENV_NAME_LINES: 1
-      - uses: actions/cache@v1
+      - uses: actions/cache@f5ce41475b483ad7581884324a6eca9f48f8dcc7 # v1
         with:
           path: ~/go/bin
           key: ${{ runner.os }}-go-runsim-binary
@@ -80,8 +80,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build, install-runsim]
     steps:
-      - uses: actions/checkout@v2
-      - uses: technote-space/get-diff-action@v1
+      - uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e # v2
+      - uses: technote-space/get-diff-action@98fd8d380c6026fd0564d5a6f98fa2cf5c100c95 # v1
         with:
           SUFFIX_FILTER: |
             .go
@@ -89,7 +89,7 @@ jobs:
             .sum
           SET_ENV_NAME_INSERTIONS: 1
           SET_ENV_NAME_LINES: 1
-      - uses: actions/cache@v1
+      - uses: actions/cache@f5ce41475b483ad7581884324a6eca9f48f8dcc7 # v1
         with:
           path: ~/go/bin
           key: ${{ runner.os }}-go-runsim-binary
@@ -103,8 +103,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build, install-runsim]
     steps:
-      - uses: actions/checkout@v2
-      - uses: technote-space/get-diff-action@v1
+      - uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e # v2
+      - uses: technote-space/get-diff-action@98fd8d380c6026fd0564d5a6f98fa2cf5c100c95 # v1
         with:
           SUFFIX_FILTER: |
             .go
@@ -112,7 +112,7 @@ jobs:
             .sum
           SET_ENV_NAME_INSERTIONS: 1
           SET_ENV_NAME_LINES: 1
-      - uses: actions/cache@v1
+      - uses: actions/cache@f5ce41475b483ad7581884324a6eca9f48f8dcc7 # v1
         with:
           path: ~/go/bin
           key: ${{ runner.os }}-go-runsim-binary
